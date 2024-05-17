@@ -6,16 +6,17 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/17 14:23:33 by svereten          #+#    #+#              #
-#    Updated: 2024/05/17 15:03:35 by svereten         ###   ########.fr        #
+#    Updated: 2024/05/17 18:07:04 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME = 
+NAME = push_swap 
 
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror  
 
-SRC_PROJ =
+SRC_PROJ = main \
+		   utils/arg
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -24,7 +25,9 @@ LIBFT_DIR = libft
 SRCS = $(SRC_PROJ:%=${SRC_DIR}/%.c)
 OBJS = $(SRC_PROJ:%=${OBJ_DIR}/%.o)
 
-INCLUDE = -I./include
+OBJ_DIRS = $(sort $(dir ${OBJS}))
+
+INCLUDE = -I./include -I./libft/include
 
 LIBFT = ./libft/libft.a
 

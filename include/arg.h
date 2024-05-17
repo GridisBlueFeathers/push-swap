@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   arg.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:31:16 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/17 18:04:11 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/17 16:56:57 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/17 18:01:14 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef ARG_H
+# define ARG_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
-# ifndef MAX_FD
-#  define MAX_FD 1024
-# endif
-
-# include "libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-
-char	*get_next_line(int fd);
+int	validate_arg(char *arg, int arg_num);
+int	append_arg(int *arr, char *arg, int i);
 
 #endif

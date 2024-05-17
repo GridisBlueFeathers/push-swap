@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:31:16 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/17 18:04:11 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/17 15:33:23 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/17 15:35:48 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
+size_t	ft_intlen(long long num)
+{
+	size_t	res;
 
-# ifndef MAX_FD
-#  define MAX_FD 1024
-# endif
-
-# include "libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-
-char	*get_next_line(int fd);
-
-#endif
+	res = 1;
+	if (num < 0)
+		res++;
+	while (num / 10)
+	{
+		res++;
+		num /= 10;
+	}
+	return (res);
+}

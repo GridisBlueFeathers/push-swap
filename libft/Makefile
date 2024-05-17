@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/05/16 21:33:45 by svereten         ###   ########.fr        #
+#    Updated: 2024/05/17 15:37:35 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_lstiter \
 			libft/ft_lstmap \
 			libft/ft_free_n_null \
+			libft/ft_intlen \
 			get-next-line/get_next_line \
 			ft-printf/ft_print_char \
 			ft-printf/ft_print_string \

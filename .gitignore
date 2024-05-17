@@ -1,8 +1,9 @@
 #libft ignore
-./libft/obj
-./libft/libft.a
+libft/obj/
+libft/libft.a
 
 #project ignore
-./obj
+obj/
 
 #add project file
+push_swap
