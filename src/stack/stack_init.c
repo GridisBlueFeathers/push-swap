@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.h                                              :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 16:56:57 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/19 14:14:33 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/19 12:45:37 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/19 14:32:25 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef ARG_H
-# define ARG_H
+#include "stack.h"
+#include "libft.h"
+#include "arg.h"
 
-# include "stack.h"
 
-int				validate_arg(char *arg, int *valid);
-t_stack_node	*process_args(int args_amount, char **argv);
+t_stack_node	*stack_init(char *arg)
+{
+	t_stack_node	*res;
 
-#endif
+	res = (t_stack_node *)ft_calloc(1, sizeof(t_stack_node));
+	if (!res)
+		return (NULL);
+	res->len = 0;
+	res->value = validate_arg(arg, &res->valid);
+	if (!res->valid)
+		return (NULL);
+	return (res);
+}

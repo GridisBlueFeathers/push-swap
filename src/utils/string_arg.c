@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.h                                              :+:      :+:    :+:   */
+/*   string_arg.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 16:56:57 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/19 14:14:33 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/19 11:28:14 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/19 11:39:07 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef ARG_H
-# define ARG_H
+#include "libft.h"
 
-# include "stack.h"
+int	preprocess_string_arg(char *str_arg)
+{
+	int	i;
 
-int				validate_arg(char *arg, int *valid);
-t_stack_node	*process_args(int args_amount, char **argv);
+	i = 0;
+	while (str_arg[i])
+	{
+		if (!(ft_isdigit(str_arg[i]) || str_arg[i] == ' ' || str_arg[i] == '-'))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
-#endif
+int	process_string_arg(int *arr, char *str_arg)
+{
+	return (1);
+}
