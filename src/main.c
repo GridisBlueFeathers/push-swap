@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/19 14:33:00 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/19 14:34:39 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -18,6 +18,7 @@ void	print_stack(t_stack_node *stack)
 {
 	while (stack) {
 		ft_printf("%d\n", stack->value);
+		ft_printf("node %p next %p prev %p\n", stack, stack->next, stack->prev);
 		stack = stack->next;
 	}
 }
