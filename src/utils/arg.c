@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:55:47 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/19 14:32:46 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:51:41 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -29,22 +29,17 @@ int	validate_arg(char *arg, int *valid)
 	return (arg_num);
 }
 
-t_stack_node *process_args(size_t args_amount, char **argv)
+int process_args(size_t args_amount, char **argv, t_stack *stack)
 {
-	t_stack_node	*res;
-	t_stack_node	*cur;
 	size_t			i;
 
-	res = stack_init(argv[1]);
-	cur = res;
-	i = 2;
+	i = 1;
 	while (i < args_amount)
 	{
-		cur = stack_append(&res, argv[i]);
-		if (!cur)
+		if (!stack_append(stack, argv[i]))
 			//TODO: free stack
-			return (NULL);
+			return (0);
 		i++;
 	}
-	return (res);
+	return (1);
 }
