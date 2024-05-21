@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 11:42:14 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/21 11:57:04 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/21 11:50:36 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/21 11:56:45 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
+#include "stack.h"
+#include "libft.h"
 
-#ifndef STACK_H
-# define STACK_H
-
-typedef struct s_stack_node
+void	swap_stack(t_stack_node **stack, char s)
 {
-	struct s_stack_node	*prev;
-	struct s_stack_node	*next;
-	int					*len;
-	int					valid;
-	int					value;
-}	t_stack_node;
+	t_stack_node	*first;
+	t_stack_node	*second;
 
-t_stack_node	*stack_init(char *arg);
-t_stack_node	*stack_append(t_stack_node **start, char *arg);
-
-void	swap_stack(t_stack_node **stack, char s);
-
-#endif // !STACK_H
+	first = *stack;
+	second = first->next;
+	first->next = second->next;
+	first->prev = second;
+	second->next = first;
+	second->prev = NULL;
+	*stack = second;
+	if (s == 'a')
+		ft_printf("sa\n");
+	else
+		ft_printf("sb\n");
+}

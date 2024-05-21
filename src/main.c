@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/19 14:34:39 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:57:15 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -26,10 +26,14 @@ void	print_stack(t_stack_node *stack)
 int	main(int argc, char **argv)
 {
 	t_stack_node	*stack_a;
+	t_stack_node	*stack_b;
 
 	if (argc == 1)
 		return (0);
+	(void)stack_b;
 	stack_a = process_args(argc, argv);
+	print_stack(stack_a);
+	swap_stack(&stack_a, 'a');
 	print_stack(stack_a);
 
 
