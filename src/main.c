@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 10:28:18 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:42:13 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -85,6 +85,10 @@ int	main(int argc, char **argv)
 	push_stack(stack_a, stack_b);
 	print_stacks(stack_a, stack_b);
 	push_stack(stack_b, stack_a);
+	print_stacks(stack_a, stack_b);
+	swap_stack(stack_a);
+	print_stacks(stack_a, stack_b);
+	swap_stack(stack_b);
 	print_stacks(stack_a, stack_b);
 	return (0);
 }
