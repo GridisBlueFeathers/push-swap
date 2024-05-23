@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:35:58 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 20:51:58 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:31:07 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
@@ -41,5 +41,8 @@ int	algo(t_stack *stack_a, t_stack *stack_b)
 		return (case_two(stack_a), 1);
 	if (stack_a->len == 3)
 		return (case_three(stack_a), 1);
+	while (stack_a->len != 3)
+		push_stack(stack_b, stack_a);
+	case_three(stack_a);
 	return (1);
 }

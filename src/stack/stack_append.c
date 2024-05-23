@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 13:43:10 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 14:54:15 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 21:41:40 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -30,9 +30,11 @@ int	stack_append(t_stack *stack, char *arg)
 	{
 		stack->head = res;
 		stack->tail = res;
+		res->index = 0;
 		return (1);
 	}
 	res->prev = cur;
+	res->index = cur->index + 1;
 	cur->next = res;
 	stack->tail = res;
 	return (1);
