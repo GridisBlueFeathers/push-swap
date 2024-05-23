@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 12:38:07 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:17:21 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -21,8 +21,7 @@ t_stack_node	*stack_at(t_stack *stack, int index)
 
 	if (!stack || !stack->head)
 		return (NULL);
-	i = 0;
-	cur = stack->head;
+	i = 0; cur = stack->head;
 	while (i < index && cur)
 	{
 		cur =  cur->next;
@@ -85,7 +84,7 @@ int	main(int argc, char **argv)
 	push_stack(stack_b, stack_a);
 	push_stack(stack_b, stack_a);
 	push_stack(stack_b, stack_a);
-	rev_rotate_stacks(stack_a, stack_b);
+	swap_stacks(stack_a, stack_b);
 	print_stacks(stack_a, stack_b);
 
 	/*push_stack(stack_b, stack_a);
