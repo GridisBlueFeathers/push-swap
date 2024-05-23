@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 11:42:14 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 11:47:02 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:02:14 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	swap_stacks(t_stack *stack_a, t_stack *stack_b);
 
 int		push_stack(t_stack *stack_to, t_stack *stack_from);
 
-int	rotate_stack(t_stack *stack, char arg);
+int		rotate_stack(t_stack *stack, char arg);
+void	rotate_stacks(t_stack *stack_a, t_stack *stack_b);
 
 #endif // !STACK_H
