@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:50:36 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 10:08:55 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:12:13 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -22,7 +22,7 @@ void	swap_stack(t_stack *stack, char s)
 	{
 		if (s == 'a')
 			ft_printf("sa\n");
-		else
+		else if (s == 'b')
 			ft_printf("sb\n");
 		return ;
 	}
@@ -35,6 +35,13 @@ void	swap_stack(t_stack *stack, char s)
 	stack->head = second;
 	if (s == 'a')
 		ft_printf("sa\n");
-	else
+	else if (s == 'b')
 		ft_printf("sb\n");
+}
+
+void	swap_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	swap_stack(stack_a, 's');
+	swap_stack(stack_b, 's');
+	ft_printf("ss\n");
 }
