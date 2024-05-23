@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 13:43:10 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/21 16:20:03 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:16:19 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -21,23 +21,19 @@ int	stack_append(t_stack *stack, char *arg)
 	res = (t_stack_node *)ft_calloc(1, sizeof(t_stack_node));
 	if (!res)
 		return (0);
-	res->value = validate_arg(arg, &res->valid);
+	res->value = validate_arg(stack, arg, &res->valid);
 	if (!res->valid)
 		return (free(res), 0);
-	cur = stack->head;
-	while (cur && cur->next)
-	{
-		if (res->value == cur->value)
-			return (free(res), 0);
-		cur = cur->next;
-	}
+	cur = stack->tail;
 	stack->len += 1;
 	if (!cur)
 	{
 		stack->head = res;
+		stack->tail = res;
 		return (1);
 	}
 	res->prev = cur;
 	cur->next = res;
+	stack->tail = res;
 	return (1);
 }

@@ -6,16 +6,17 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:55:47 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 10:55:52 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:11:49 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 #include "stack.h"
 
-int	validate_arg(char *arg, int *valid)
+int	validate_arg(t_stack *stack, char *arg, int *valid)
 {
-	int		arg_num;
-	size_t	arg_len;
+	int				arg_num;
+	size_t			arg_len;
+	t_stack_node	*cur;
 
 	arg_num = ft_atoi(arg);
 	arg_len = ft_strlen(arg);
@@ -24,6 +25,16 @@ int	validate_arg(char *arg, int *valid)
 	{
 		*valid = 0;
 		return (0);
+	}
+	cur = stack->head;
+	while (cur)
+	{
+		if (cur->value == arg_num)
+		{
+			*valid = 0;
+			return (0);
+		}
+		cur = cur->next;
 	}
 	*valid = 1;
 	return (arg_num);
