@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 15:02:45 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 15:03:12 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "arg.h"
@@ -73,7 +73,6 @@ int main(int argc, char **argv) {
 		return (0);
 	stack_a = stack_init('a');
 	stack_b = stack_init('b');
-
 
 	if (!stack_a || !stack_b)
 		return (stack_free(stack_a), stack_free(stack_b), 1);

@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 10:45:41 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 12:37:21 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 15:03:32 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
@@ -15,6 +15,7 @@
 int	rotate_stack(t_stack *stack, char arg)
 {
 	t_stack_node	*temp;
+
 	if (!stack->head)
 		return (print_stack_op(stack, "r%c\n", arg), 0);
 	temp = stack->head;
@@ -30,6 +31,7 @@ int	rotate_stack(t_stack *stack, char arg)
 int	rev_rotate_stack(t_stack *stack, char arg)
 {
 	t_stack_node	*temp;
+
 	if (!stack->head)
 		return (print_stack_op(stack, "rr%c\n", arg), 0);
 	temp = stack->tail;
