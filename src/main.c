@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 16:51:16 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 20:27:38 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "arg.h"
@@ -80,6 +80,7 @@ int main(int argc, char **argv) {
 
 	if (!process_args(argc, argv, stack_a))
 		return (stack_free(stack_a), stack_free(stack_b), 1);
+	print_stacks(stack_a, stack_b);
 
 	algo(stack_a, stack_b);
 	

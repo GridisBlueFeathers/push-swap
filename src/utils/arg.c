@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:55:47 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 14:56:46 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 20:27:17 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -40,12 +40,20 @@ int	validate_arg(t_stack *stack, char *arg, int *valid)
 	return (arg_num);
 }
 
-int	process_args(size_t args_amount, char **argv, t_stack *stack)
+int	process_args(size_t argc, char **argv, t_stack *stack)
 {
-	size_t			i;
+	size_t	i;
 
 	i = 1;
-	while (i < args_amount)
+	if (argc == 2)
+	{
+		argv = ft_split(argv[1], ' ');
+		argc = 0;
+		while (argv[argc])
+			argc++;
+		i = 0;
+	}
+	while (i < argc)
 	{
 		if (!stack_append(stack, argv[i]))
 			return (0);
