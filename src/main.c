@@ -6,12 +6,13 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 15:03:12 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:51:16 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "arg.h"
 #include "ft_printf.h"
 #include "libft.h"
+#include "algo.h"
 #include "stack.h"
 
 t_stack_node *stack_at(t_stack *stack, int index)
@@ -80,6 +81,7 @@ int main(int argc, char **argv) {
 	if (!process_args(argc, argv, stack_a))
 		return (stack_free(stack_a), stack_free(stack_b), 1);
 
+	algo(stack_a, stack_b);
 	
 	return (stack_free(stack_a), stack_free(stack_b), 0);
 	return (0);
