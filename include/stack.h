@@ -6,14 +6,14 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 11:42:14 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 10:41:36 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:56:47 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
 
-#include "libft.h"
+# include "libft.h"
 
 typedef struct s_stack_node
 {
@@ -28,7 +28,7 @@ typedef struct s_stack
 	size_t			len;
 	t_stack_node	*head;
 	//tail?
-	char				label;
+	char			label;
 }	t_stack;
 
 t_stack	*stack_init(char label);
