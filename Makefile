@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/17 14:23:33 by svereten          #+#    #+#              #
-#    Updated: 2024/05/21 11:53:58 by svereten         ###   ########.fr        #
+#    Updated: 2024/05/23 10:19:17 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = push_swap 
@@ -20,6 +20,7 @@ SRC_PROJ = main \
 		   stack/stack_init \
 		   stack/stack_append \
 		   stack/swap \
+		   stack/push \
 
 SRC_DIR = src
 OBJ_DIR = obj
