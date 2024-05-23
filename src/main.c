@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 10:22:32 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:28:18 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -74,15 +74,17 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
-	stack_a = stack_init_alt();
-	stack_b = stack_init_alt();
+	stack_a = stack_init('a');
+	stack_b = stack_init('b');
 	stack_append(stack_b, "5");
 	if (!stack_a || !stack_b)
 		//TODO: proper free stacks
 		return (free(stack_a), free(stack_b), 1);
 	process_args(argc, argv, stack_a);
 	print_stacks(stack_a, stack_b);
-	push_stack(stack_a, stack_b, 'a');
+	push_stack(stack_a, stack_b);
+	print_stacks(stack_a, stack_b);
+	push_stack(stack_b, stack_a);
 	print_stacks(stack_a, stack_b);
 	return (0);
 }

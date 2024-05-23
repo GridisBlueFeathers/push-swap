@@ -6,14 +6,14 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 12:45:37 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/21 15:52:03 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 10:28:35 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
 #include "libft.h"
 #include "arg.h"
 
-t_stack	*stack_init_alt(void)
+t_stack	*stack_init(char label)
 {
 	t_stack	*res;
 
@@ -21,5 +21,6 @@ t_stack	*stack_init_alt(void)
 	if (!res)
 		return (NULL);
 	res->len = 0;
+	res->label = label;
 	return (res);
 }
