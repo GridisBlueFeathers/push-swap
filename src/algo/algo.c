@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:35:58 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 16:54:41 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 20:51:58 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
@@ -23,6 +23,13 @@ void	case_three(t_stack *stack_a)
 	if (stack_a->head->value > stack_a->head->next->value
 		&& stack_a->head->value > stack_a->tail->value)
 		rotate_stack(stack_a, 'v');
+	if (stack_a->head->value < stack_a->head->next->value
+		&& stack_a->head->next->value < stack_a->tail->value)
+		return ;
+	if ((stack_a->head->value < stack_a->head->next->value)
+		|| (stack_a->head->value > stack_a->head->next->value))
+		swap_stack(stack_a, 'v');
+	case_three(stack_a);
 }
 
 int	algo(t_stack *stack_a, t_stack *stack_b)

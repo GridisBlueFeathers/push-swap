@@ -6,9 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:23:18 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 15:03:47 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 20:50:09 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 #include "stack.h"
 #include "libft.h"
 
@@ -29,4 +30,15 @@ void	stack_free(t_stack *stack)
 	stack->head = NULL;
 	stack->tail = NULL;
 	ft_free_n_null((void **)&stack);
+}
+
+void print_stack(t_stack *stack)
+{
+	t_stack_node *cur;
+
+	cur = stack->head;
+	while (cur) {
+		ft_printf("%d\n", cur->value);
+		cur = cur->next;
+	}
 }
