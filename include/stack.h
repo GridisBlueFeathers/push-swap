@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 11:42:14 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 14:15:13 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:42:27 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_stack
 
 t_stack	*stack_init(char label);
 int		stack_append(t_stack *stack, char *arg);
+void	stack_free(t_stack *stack);
 void	print_stack_op(t_stack *stack, char *fmt, char arg);
 
 int		swap_stack(t_stack *stack, char arg);

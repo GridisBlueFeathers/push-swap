@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:55:47 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 11:11:49 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:56:46 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -48,7 +48,6 @@ int	process_args(size_t args_amount, char **argv, t_stack *stack)
 	while (i < args_amount)
 	{
 		if (!stack_append(stack, argv[i]))
-			//TODO: free stack
 			return (0);
 		i++;
 	}
