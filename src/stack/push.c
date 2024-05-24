@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 10:13:44 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 11:58:03 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:58:35 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
@@ -30,5 +30,7 @@ int	push_stack(t_stack *stack_to, t_stack *stack_from)
 	stack_to->head = temp;
 	stack_to->len += 1;
 	stack_from->len -= 1;
+	stack_update_index(stack_to);
+	stack_update_index(stack_from);
 	return (ft_printf("p%c\n", stack_to->label), 1);
 }

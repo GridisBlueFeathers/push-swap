@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:50:36 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 14:17:54 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:58:08 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -29,6 +29,7 @@ int	swap_stack(t_stack *stack, char arg)
 	stack->head = second;
 	if (stack->tail == stack->head)
 		stack->tail = first;
+	stack_update_index(stack);
 	return (print_stack_op(stack, "s%c\n", arg), 1);
 }
 

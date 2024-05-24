@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 21:11:17 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:54:10 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "algo.h"
@@ -46,13 +46,13 @@ void print_stacks(t_stack *stack_a, t_stack *stack_b)
   cur_b = stack_b->head;
   while (i < max_len) {
     if (i + stack_a->len >= max_len) {
-      ft_printf("%d ", cur_a->value);
+      ft_printf("%d ", cur_a->index);
       if (cur_a->next)
         cur_a = cur_a->next;
     } else
       ft_printf("  ");
     if (i + stack_b->len >= max_len) {
-      ft_printf("%d\n", cur_b->value);
+      ft_printf("%d\n", cur_b->index);
       if (cur_b->next)
         cur_b = cur_b->next;
     } else
