@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:23:18 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/24 16:19:35 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/24 17:55:37 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -45,6 +45,24 @@ t_stack_node	*stack_find_smallest(t_stack *stack)
 		cur = cur->next;
 	}
 	return (smallest);
+}
+
+t_stack_node	*stack_find_cheapest(t_stack *stack)
+{
+	t_stack_node	*cur;
+	t_stack_node	*cheapest;
+
+	if (!stack || !stack->head)
+		return (NULL);
+	cur = stack->head;
+	cheapest = stack->head;
+	while (cur)
+	{
+		if (cur->top_cost < cheapest->top_cost)
+			cheapest = cur;
+		cur = cur->next;
+	}
+	return (cheapest);
 }
 
 int	stack_is_sorted_bad(t_stack *stack)

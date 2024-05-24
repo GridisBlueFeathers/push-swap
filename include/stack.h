@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 11:42:14 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/24 15:48:10 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/24 17:55:52 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_stack_node
 	int					valid;
 	int					value;
 	int					top_cost;
-	int					index;
+	size_t				index;
 }	t_stack_node;
 
 typedef struct s_stack
@@ -41,6 +41,7 @@ void			stack_update_index(t_stack *stack);
 int				stack_is_sorted_good(t_stack *stack);
 int				stack_is_sorted_bad(t_stack *stack);
 t_stack_node	*stack_find_smallest(t_stack *stack);
+t_stack_node	*stack_find_cheapest(t_stack *stack);
 void			print_stack_op(t_stack *stack, char *fmt, char arg);
 void			print_stack(t_stack *stack);
 
@@ -53,5 +54,7 @@ int				rotate_stack(t_stack *stack, char arg);
 int				rev_rotate_stack(t_stack *stack, char arg);
 void			rotate_stacks(t_stack *stack_a, t_stack *stack_b);
 void			rev_rotate_stacks(t_stack *stack_a, t_stack *stack_b);
+
+void print_stacks_util(t_stack *stack_a, t_stack *stack_b);
 
 #endif // !STACK_H
