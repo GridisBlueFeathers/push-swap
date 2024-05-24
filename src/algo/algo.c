@@ -6,11 +6,25 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:35:58 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/24 15:35:39 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:17:43 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
 #include "ft_printf.h"
+
+void	algo_top_node(t_stack *stack, t_stack_node *node)
+{
+	if (!stack || !stack->head || !node)
+		return ;
+	if (!node->index)
+		return ;
+	if (node->index > (int)stack->len / 2)
+		rev_rotate_stack(stack, 'v');
+	else
+		rotate_stack(stack, 'v');
+	stack_update_index(stack);
+	algo_top_node(stack, node);
+}
 
 void	algo_case_two(t_stack *stack_a)
 {
@@ -25,6 +39,11 @@ void	algo_case_three(t_stack *stack_a)
 		rotate_stack(stack_a, 'v');
 	if (stack_is_sorted_good(stack_a))
 		return ;
+	if (stack_is_sorted_bad(stack_a))
+	{
+		algo_top_node(stack_a, stack_find_smallest(stack_a));
+		return;
+	}
 	if ((stack_a->head->value < stack_a->head->next->value)
 		|| (stack_a->head->value > stack_a->head->next->value))
 		swap_stack(stack_a, 'v');

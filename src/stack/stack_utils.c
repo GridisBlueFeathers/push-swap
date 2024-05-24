@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:23:18 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/24 15:51:29 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:19:35 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -52,14 +52,16 @@ int	stack_is_sorted_bad(t_stack *stack)
 	t_stack_node	*cur;
 	t_stack_node	*smallest;
 
-	(void)smallest;
 	if (!stack || !stack->head)
 		return (-1);
 	cur = stack->head;
+	smallest = stack_find_smallest(stack);
+	if (stack->tail->value > stack->head->value)
+		return (0);
 	while (cur->next)
 	{
 		if ((cur->value > cur->next->value)
-			&& (cur->next->value > stack->tail->value))
+			&& (cur->next != smallest))
 				return (0);
 		cur = cur->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/24 15:48:47 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:17:58 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "algo.h"
@@ -84,9 +84,8 @@ int main(int argc, char **argv)
 	if (!process_args(argc, argv, stack_a))
 		return (stack_free(stack_a), stack_free(stack_b), ft_printf("Error\n"), 1);
 
-	//algo(stack_a, stack_b);
+	algo(stack_a, stack_b);
 	print_stacks(stack_a, stack_b);
-	printf("\n%d\n", stack_find_smallest(stack_a)->value);
 
 
 	return (stack_free(stack_a), stack_free(stack_b), 0);
