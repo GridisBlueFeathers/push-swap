@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:55:47 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 20:27:17 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/24 15:58:18 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -21,7 +21,7 @@ int	validate_arg(t_stack *stack, char *arg, int *valid)
 	arg_num = ft_atoi(arg);
 	arg_len = ft_strlen(arg);
 	if ((ft_intlen(arg_num) != arg_len)
-		|| (arg[0] == '-' && arg_len))
+		|| (arg[0] == '-' && arg_len == 1))
 	{
 		*valid = 0;
 		return (0);

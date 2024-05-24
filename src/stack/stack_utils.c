@@ -6,12 +6,65 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:23:18 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/24 14:57:23 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/24 15:51:29 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 #include "stack.h"
 #include "libft.h"
+
+int	stack_is_sorted_good(t_stack *stack)
+{
+	t_stack_node	*cur;
+
+	if (!stack || !stack->head)
+		return (-1);
+	cur = stack->head;
+	while (cur->next)
+	{
+		if (cur->value > cur->next->value)
+			return (0);
+		cur = cur->next;
+	}
+	return (1);
+}
+
+t_stack_node	*stack_find_smallest(t_stack *stack)
+{
+	t_stack_node	*cur;
+	t_stack_node	*smallest;
+
+	if (!stack || !stack->head)
+		return (NULL);
+	cur = stack->head;
+	smallest = stack->head;
+	while (cur)
+	{
+		if (cur->value < smallest->value)
+			smallest = cur;
+		cur = cur->next;
+	}
+	return (smallest);
+}
+
+int	stack_is_sorted_bad(t_stack *stack)
+{
+	t_stack_node	*cur;
+	t_stack_node	*smallest;
+
+	(void)smallest;
+	if (!stack || !stack->head)
+		return (-1);
+	cur = stack->head;
+	while (cur->next)
+	{
+		if ((cur->value > cur->next->value)
+			&& (cur->next->value > stack->tail->value))
+				return (0);
+		cur = cur->next;
+	}
+	return (1);
+}
 
 void	stack_update_index(t_stack *stack)
 {
