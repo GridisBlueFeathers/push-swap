@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/24 18:11:32 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/26 10:31:52 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "algo.h"
@@ -48,19 +48,17 @@ void print_stacks(t_stack *stack_a, t_stack *stack_b)
 	cur_b = stack_b->head;
 	while (i < max_len)
 	{
-		if (i + stack_a->len >= max_len)
+		if ((stack_a->len == max_len) || (i + stack_a->len > max_len && cur_a))
 		{
 			ft_printf("%d ", cur_a->value);
-			if (cur_a->next)
-				cur_a = cur_a->next;
+			cur_a = cur_a->next;
 		}
 		else
 			ft_printf("  ");
-		if (i + stack_b->len >= max_len)
+		if ((stack_b->len == max_len) || (i + stack_b->len > max_len && cur_b))
 		{
 			ft_printf("%d\n", cur_b->value);
-			if (cur_b->next)
-				cur_b = cur_b->next;
+			cur_b = cur_b->next;
 		}
 		else
 			ft_printf(" \n");
@@ -84,19 +82,17 @@ void print_stacks_util(t_stack *stack_a, t_stack *stack_b)
 	cur_b = stack_b->head;
 	while (i < max_len)
 	{
-		if (i + stack_a->len >= max_len)
+		if ((stack_a->len == max_len) || (i + stack_a->len > max_len && cur_a))
 		{
 			ft_printf("%d ", cur_a->top_cost);
-			if (cur_a->next)
-				cur_a = cur_a->next;
+			cur_a = cur_a->next;
 		}
 		else
 			ft_printf("  ");
-		if (i + stack_b->len >= max_len)
+		if ((stack_b->len == max_len) || (i + stack_b->len > max_len && cur_b))
 		{
 			ft_printf("%d\n", cur_b->top_cost);
-			if (cur_b->next)
-				cur_b = cur_b->next;
+			cur_b = cur_b->next;
 		}
 		else
 			ft_printf(" \n");
@@ -121,6 +117,8 @@ int main(int argc, char **argv)
 		return (stack_free(stack_a), stack_free(stack_b), ft_printf("Error\n"), 1);
 
 	algo(stack_a, stack_b);
+
+	print_stacks(stack_a, stack_b);
 
 
 	return (stack_free(stack_a), stack_free(stack_b), 0);

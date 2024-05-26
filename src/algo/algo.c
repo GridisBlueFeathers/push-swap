@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:35:58 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/24 18:11:01 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/26 10:20:36 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
@@ -16,7 +16,7 @@ void	algo_top_node(t_stack *stack, t_stack_node *node)
 {
 	if (!stack || !stack->head || !node)
 		return ;
-	if (!node->index)
+	if (stack->head == node)
 		return ;
 	else if (node->index > stack->len / 2)
 		rev_rotate_stack(stack, 'v');
@@ -131,6 +131,7 @@ void	algo_top_a_cheapest(t_stack *stack_a, t_stack *stack_b)
 
 int	algo(t_stack *stack_a, t_stack *stack_b)
 {
+	int	i;
 	if (stack_a->len == 1)
 		return (1);
 	if (stack_a->len == 2)
@@ -142,11 +143,13 @@ int	algo(t_stack *stack_a, t_stack *stack_b)
 	algo_case_three(stack_a);
 	algo_calc_below(stack_a, stack_b);
 	algo_calc_costs(stack_a, stack_b);
-	while (stack_b->len)
+	i = 0;
+	while (stack_b->len && i < 1)
 	{
 		algo_top_a_cheapest(stack_a, stack_b);
 		algo_calc_below(stack_a, stack_b);
 		algo_calc_costs(stack_a, stack_b);
+		i++;
 	}
 	algo_top_node(stack_a, stack_find_smallest(stack_a));
 	return (1);
