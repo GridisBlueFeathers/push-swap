@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:50:36 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/24 14:58:08 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/26 11:11:22 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -24,6 +24,7 @@ int	swap_stack(t_stack *stack, char arg)
 	second = first->next;
 	first->next = second->next;
 	first->prev = second;
+	second->next->prev = first;
 	second->next = first;
 	second->prev = NULL;
 	stack->head = second;

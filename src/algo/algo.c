@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:35:58 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/26 10:20:36 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/26 11:10:51 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
@@ -16,7 +16,8 @@ void	algo_top_node(t_stack *stack, t_stack_node *node)
 {
 	if (!stack || !stack->head || !node)
 		return ;
-	if (stack->head == node)
+	//printf("%d\n", node->value);
+	if (stack->head->value == node->value)
 		return ;
 	else if (node->index > stack->len / 2)
 		rev_rotate_stack(stack, 'v');
@@ -144,12 +145,12 @@ int	algo(t_stack *stack_a, t_stack *stack_b)
 	algo_calc_below(stack_a, stack_b);
 	algo_calc_costs(stack_a, stack_b);
 	i = 0;
-	while (stack_b->len && i < 1)
+	while (stack_b->len && !i)
 	{
 		algo_top_a_cheapest(stack_a, stack_b);
 		algo_calc_below(stack_a, stack_b);
 		algo_calc_costs(stack_a, stack_b);
-		i++;
+		//i++;
 	}
 	algo_top_node(stack_a, stack_find_smallest(stack_a));
 	return (1);
