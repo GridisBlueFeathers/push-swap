@@ -6,10 +6,12 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/17 14:23:33 by svereten          #+#    #+#              #
-#    Updated: 2024/05/27 23:36:47 by svereten         ###   ########.fr        #
+#    Updated: 2024/05/28 01:14:09 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = push_swap 
+
+BONUS_NAME = checker
 
 CC = cc
 
@@ -33,12 +35,17 @@ SRC_PROJ = main \
 		   algo/algo_move_dir \
 		   algo/algo_cases \
 
+BONUS_PROJ = checker_bonus \
+
 SRC_DIR = src
 OBJ_DIR = obj
 LIBFT_DIR = libft
 
 SRCS = $(SRC_PROJ:%=${SRC_DIR}/%.c)
 OBJS = $(SRC_PROJ:%=${OBJ_DIR}/%.o)
+
+BONUSES= $(BONUS_PROJ:%=${SRC_DIR}/%.c)
+BONUS_OBJS = $(BONUS_PROJ:%=${OBJ_DIR}/%.o)
 
 OBJ_DIRS = $(sort $(dir ${OBJS}))
 
@@ -49,6 +56,11 @@ LIBFT = ./libft/libft.a
 all: ${NAME}
 
 ${NAME}: ${OBJS} ${LIBFT}
+	${CC} ${CFLAGS} ${INCLUDE} $^ -o $@
+	
+bonus: ${BONUS_NAME}
+
+${BONUS_NAME}: ${BONUS_OBJS} ${LIBFT}
 	${CC} ${CFLAGS} ${INCLUDE} $^ -o $@
 
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.c | ${OBJ_DIRS}
