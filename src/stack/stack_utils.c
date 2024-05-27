@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 14:23:18 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/27 20:39:07 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/27 21:02:41 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
@@ -83,4 +83,10 @@ void	stack_free(t_stack *stack)
 	stack->head = NULL;
 	stack->tail = NULL;
 	ft_free_n_null((void **)&stack);
+}
+
+void	stacks_free(t_stack *stack_a, t_stack *stack_b)
+{
+	stack_free(stack_a);
+	stack_free(stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 11:42:14 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/27 20:09:06 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/27 21:02:56 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,13 @@ typedef struct s_stack
 t_stack			*stack_init(char label);
 int				stack_append(t_stack *stack, char *arg);
 void			stack_free(t_stack *stack);
+void			stacks_free(t_stack *stack_a, t_stack *stack_b);
 void			stack_update_index(t_stack *stack);
 int				stack_is_sorted_good(t_stack *stack);
 int				stack_is_sorted_bad(t_stack *stack);
 t_stack_node	*stack_find_smallest(t_stack *stack);
 t_stack_node	*stack_find_cheapest(t_stack *stack);
 void			print_stack_op(t_stack *stack, char *fmt, char arg);
-void			print_stack(t_stack *stack);
-void			print_stacks(t_stack *stack_a, t_stack *stack_b);
 
 int				swap_stack(t_stack *stack, char arg);
 void			swap_stacks(t_stack *stack_a, t_stack *stack_b);
@@ -57,6 +56,9 @@ int				rev_rotate_stack(t_stack *stack, char arg);
 void			rotate_stacks(t_stack *stack_a, t_stack *stack_b);
 void			rev_rotate_stacks(t_stack *stack_a, t_stack *stack_b);
 
+
+void			print_stack(t_stack *stack);
+void			print_stacks(t_stack *stack_a, t_stack *stack_b);
 void			print_stacks_util(t_stack *stack_a, t_stack *stack_b);
 
 #endif // !STACK_H
