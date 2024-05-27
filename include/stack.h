@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 11:42:14 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/27 14:38:48 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/27 20:09:06 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_stack_node
 {
 	struct s_stack_node	*prev;
 	struct s_stack_node	*next;
-	struct s_stack_node *below;
+	struct s_stack_node	*below;
 	int					valid;
 	int					value;
 	int					top_cost;
@@ -57,6 +57,6 @@ int				rev_rotate_stack(t_stack *stack, char arg);
 void			rotate_stacks(t_stack *stack_a, t_stack *stack_b);
 void			rev_rotate_stacks(t_stack *stack_a, t_stack *stack_b);
 
-void print_stacks_util(t_stack *stack_a, t_stack *stack_b);
+void			print_stacks_util(t_stack *stack_a, t_stack *stack_b);
 
 #endif // !STACK_H
