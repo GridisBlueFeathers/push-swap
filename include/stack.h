@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 11:42:14 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/26 10:52:50 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:38:48 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_stack_node
 	int					valid;
 	int					value;
 	int					top_cost;
+	int					rotation_mode;
 	size_t				index;
 }	t_stack_node;
 

@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:35:58 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/26 11:10:51 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/27 19:33:34 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
@@ -16,15 +16,14 @@ void	algo_top_node(t_stack *stack, t_stack_node *node)
 {
 	if (!stack || !stack->head || !node)
 		return ;
-	//printf("%d\n", node->value);
-	if (stack->head->value == node->value)
-		return ;
-	else if (node->index > stack->len / 2)
-		rev_rotate_stack(stack, 'v');
-	else
-		rotate_stack(stack, 'v');
-	stack_update_index(stack);
-	algo_top_node(stack, node);
+	while (stack->head->value != node->value)
+	{
+		if (node->index > stack->len / 2)
+			rev_rotate_stack(stack, 'v');
+		else
+			rotate_stack(stack, 'v');
+		stack_update_index(stack);
+	}
 }
 
 void	algo_case_two(t_stack *stack_a)
@@ -99,6 +98,68 @@ void	algo_calc_base_cost(t_stack *stack)
 	}
 }
 
+void	algo_calc_up_up(t_stack_node **cur)
+{
+	int	res;
+	t_stack_node	*node;
+
+	node = *cur;
+	if (node->index > node->below->index)
+		res = node->index + 1;
+	else
+		res = node->below->index + 1;
+	if (res < node->top_cost)
+	{
+		node->top_cost = res;
+		node->rotation_mode = 1;
+	}
+}
+
+void	algo_calc_down_down(t_stack *a, t_stack *b, t_stack_node **cur)
+{
+	int	res;
+	t_stack_node	*node;
+
+	node = *cur;
+	if (b->len - node->index > a->len - node->below->index)
+		res = b->len - node->index + 1;
+	else
+		res = a->len - node->below->index + 1;
+	if (res < node->top_cost)
+	{
+		node->top_cost = res;
+		node->rotation_mode = 2;
+	}
+}
+
+void	algo_calc_up_down(t_stack *b, t_stack_node **cur)
+{
+	int	res;
+	t_stack_node	*node;
+
+	node = *cur;
+	res = node->below->index + (b->len - node->index) + 1;
+	if (res < node->top_cost)
+	{
+		node->top_cost = res;
+		node->rotation_mode = 3;
+	}
+}
+
+void	algo_calc_down_up(t_stack *a, t_stack_node **cur)
+{
+	int	res;
+	t_stack_node	*node;
+
+	node = *cur;
+	res = (a->len - node->below->index) + node->index + 1;
+	if (res < node->top_cost)
+	{
+		node->top_cost = res;
+		node->rotation_mode = 4;
+	}
+}
+
 void	algo_calc_costs(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack_node	*cur;
@@ -109,15 +170,61 @@ void	algo_calc_costs(t_stack *stack_a, t_stack *stack_b)
 	cur = stack_b->head;
 	while (cur)
 	{
-		if (cur->index < stack_b->len / 2)
-			cur->top_cost = cur->index;
-		else if (cur->index == 1)
-			cur->top_cost = 1;
-		else
-			cur->top_cost = stack_b->len - cur->index;
-		cur->top_cost += cur->below->top_cost + 1;
+		cur->top_cost = 2147483647;
+		algo_calc_up_up(&cur);
+		algo_calc_down_down(stack_a, stack_b, &cur);
+		algo_calc_up_down(stack_b, &cur);
+		algo_calc_down_up(stack_a, &cur);
 		cur = cur->next;
 	}
+}
+
+void	algo_top_one_direction(t_stack *a, t_stack *b, t_stack_node *c)
+{
+	if ((c->index > b->len / 2) && (c->below->index > a->len / 2))
+		while ((b->head->value != c->value)
+			&& (a->head->value != c->below->value))
+			rev_rotate_stacks(a, b);
+	else if (c->index <= b->len / 2 && c->below->index <= a->len /2)
+		while ((b->head->value != c->value)
+			&& (a->head->value != c->below->value))
+			rotate_stacks(a, b);
+}
+
+void	algo_top_up_up(t_stack *a, t_stack *b, t_stack_node *c)
+{
+	while (b->head->value != c->value && a->head->value != c->below->value)
+		rotate_stacks(a, b);
+	algo_top_node(a, c->below);
+	algo_top_node(b, c);
+	push_stack(a, b);
+}
+
+void	algo_top_down_down(t_stack *a, t_stack *b, t_stack_node *c)
+{
+	while (b->head->value != c->value && a->head->value != c->below->value)
+		rev_rotate_stacks(a, b);
+	algo_top_node(a, c->below);
+	algo_top_node(b, c);
+	push_stack(a, b);
+}
+
+void	algo_top_up_down(t_stack *a, t_stack *b, t_stack_node *c)
+{
+	while (a->head->value != c->below->value)
+		rotate_stack(a, 'v');
+	while (b->head->value != c->value)
+		rev_rotate_stack(b, 'v');
+	push_stack(a, b);
+}
+
+void	algo_top_down_up(t_stack *a, t_stack *b, t_stack_node *c)
+{
+	while (a->head->value != c->below->value)
+		rev_rotate_stack(a, 'v');
+	while (b->head->value != c->value)
+		rotate_stack(b, 'v');
+	push_stack(a, b);
 }
 
 void	algo_top_a_cheapest(t_stack *stack_a, t_stack *stack_b)
@@ -125,9 +232,15 @@ void	algo_top_a_cheapest(t_stack *stack_a, t_stack *stack_b)
 	t_stack_node	*cheapest;
 
 	cheapest = stack_find_cheapest(stack_b);
-	algo_top_node(stack_a, cheapest->below);
-	algo_top_node(stack_b, cheapest);
-	push_stack(stack_a, stack_b);
+	//printf("%d\n", cheapest->top_cost);
+	if (cheapest->rotation_mode == 1)
+		algo_top_up_up(stack_a, stack_b, cheapest);
+	if (cheapest->rotation_mode == 2)
+		algo_top_down_down(stack_a, stack_b, cheapest);
+	if (cheapest->rotation_mode == 3)
+		algo_top_up_down(stack_a, stack_b, cheapest);
+	if (cheapest->rotation_mode == 4)
+		algo_top_down_up(stack_a, stack_b, cheapest);
 }
 
 int	algo(t_stack *stack_a, t_stack *stack_b)

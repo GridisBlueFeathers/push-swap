@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/26 11:03:18 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/27 19:17:30 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "algo.h"
@@ -95,7 +95,7 @@ void print_stacks_util(t_stack *stack_a, t_stack *stack_b)
 		if ((stack_b->len == max_len)
 			|| (i + stack_b->len >= max_len && cur_b))
 		{
-			ft_printf("%d\n", cur_b->below->value);
+			ft_printf("%d\n", cur_b->top_cost);
 			cur_b = cur_b->next;
 		}
 		else
@@ -125,8 +125,8 @@ int main(int argc, char **argv)
 	/*print_stacks(stack_a, stack_b);
 	printf("\n");
 	print_stacks_util(stack_a, stack_b);
-	printf("\n");
-	print_stack(stack_a);*/
+	printf("\n");*/
+	//print_stack(stack_a);
 
 
 	return (stack_free(stack_a), stack_free(stack_b), 0);
