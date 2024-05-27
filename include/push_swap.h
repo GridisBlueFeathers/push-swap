@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/27 23:49:27 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/27 23:45:08 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/27 23:45:38 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	main(int argc, char **argv)
-{
-	push_swap(argc, argv);
-}
+int	push_swap(int argc, char **argv);
+
+#endif // !PUSH_SWAP_H

@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:55:47 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/24 15:58:18 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/28 00:02:39 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -40,11 +40,28 @@ int	validate_arg(t_stack *stack, char *arg, int *valid)
 	return (arg_num);
 }
 
+void	free_split(char **argv, int split)
+{
+	int	i;
+
+	i = 0;
+	if (!split)
+		return ;
+	while (argv[i])
+	{
+		ft_free_n_null((void **)&argv[i]);
+		i++;
+	}
+	ft_free_n_null((void **)&argv);
+}
+
 int	process_args(size_t argc, char **argv, t_stack *stack)
 {
 	size_t	i;
+	int		split;
 
 	i = 1;
+	split = 0;
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
@@ -52,12 +69,13 @@ int	process_args(size_t argc, char **argv, t_stack *stack)
 		while (argv[argc])
 			argc++;
 		i = 0;
+		split = 1;
 	}
 	while (i < argc)
 	{
 		if (!stack_append(stack, argv[i]))
-			return (0);
+			return (free_split(argv, split), 0);
 		i++;
 	}
-	return (1);
+	return (free_split(argv, split), 1);
 }

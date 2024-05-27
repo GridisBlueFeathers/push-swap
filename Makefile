@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/17 14:23:33 by svereten          #+#    #+#              #
-#    Updated: 2024/05/27 20:39:29 by svereten         ###   ########.fr        #
+#    Updated: 2024/05/27 23:36:47 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = push_swap 
@@ -16,7 +16,9 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror  
 
 SRC_PROJ = main \
+		   push_swap \
 		   utils/arg \
+		   utils/print_error \
 		   stack/stack_init \
 		   stack/stack_append \
 		   stack/swap \
