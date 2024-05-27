@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/17 14:23:33 by svereten          #+#    #+#              #
-#    Updated: 2024/05/27 20:32:13 by svereten         ###   ########.fr        #
+#    Updated: 2024/05/27 20:39:29 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = push_swap 
@@ -24,6 +24,8 @@ SRC_PROJ = main \
 		   stack/rotate \
 		   stack/print_stack_op \
 		   stack/stack_utils \
+		   stack/stack_dev \
+		   stack/stack_find \
 		   algo/algo \
 		   algo/algo_calc_dir \
 		   algo/algo_move_dir \
