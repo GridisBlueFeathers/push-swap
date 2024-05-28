@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 00:07:27 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/28 15:16:10 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/28 16:59:57 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -43,11 +43,28 @@ int	perform_op(t_stack *stack_a, t_stack *stack_b, char *line)
 	return (0);
 }
 
+int	parse_ops(t_stack *stack_a, t_stack *stack_b)
+{
+	char	*line;
+	int		check;
+
+	line = get_next_line(STDIN_FILENO);
+	check = 1;
+	while (line)
+	{
+		if (check && line && line[0] && !perform_op(stack_a, stack_b, line))
+			check = 0;
+		ft_free_n_null((void **)&line);
+		line = get_next_line(STDIN_FILENO);
+	}
+	ft_free_n_null((void **)&line);
+	return (check);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	*line;
 
 	if (argc == 1)
 		return (0);
@@ -57,13 +74,8 @@ int	main(int argc, char **argv)
 		return (stacks_free(stack_a, stack_b), print_error(), 1);
 	if (!process_args(argc, argv, stack_a))
 		return (stacks_free(stack_a, stack_b), print_error(), 1);
-	line = "";
-	while (line)
-	{
-		line = get_next_line(STDIN_FILENO);
-		if (line && line[0] && !perform_op(stack_a, stack_b, line))
-			return (print_error(), 1);
-	}
+	if (!parse_ops(stack_a, stack_b))
+		return (stacks_free(stack_a, stack_b), print_error(), 1);
 	if (stack_is_sorted_good(stack_a) && !stack_b->len)
 		ft_printf("OK\n");
 	else
