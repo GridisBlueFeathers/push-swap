@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   stack_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 11:42:14 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/28 13:30:17 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/28 14:14:50 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/28 14:15:08 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef STACK_H
-# define STACK_H
+#ifndef STACK_BONUS_H
+# define STACK_BONUS_H
 
 # include "libft.h"
 
@@ -60,4 +60,4 @@ void			print_stack(t_stack *stack);
 void			print_stacks(t_stack *stack_a, t_stack *stack_b);
 void			print_stacks_util(t_stack *stack_a, t_stack *stack_b);
 
-#endif // !STACK_H
+#endif

@@ -6,12 +6,11 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 12:45:37 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/23 14:42:31 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:16:15 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack.h"
 #include "libft.h"
-#include "arg.h"
 
 t_stack	*stack_init(char label)
 {

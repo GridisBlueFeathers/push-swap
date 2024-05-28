@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/17 14:23:33 by svereten          #+#    #+#              #
-#    Updated: 2024/05/28 01:14:09 by svereten         ###   ########.fr        #
+#    Updated: 2024/05/28 15:13:25 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = push_swap 
@@ -15,7 +15,7 @@ BONUS_NAME = checker
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror  
+CFLAGS = -Wall -Wextra -Werror
 
 SRC_PROJ = main \
 		   push_swap \
@@ -36,15 +36,26 @@ SRC_PROJ = main \
 		   algo/algo_cases \
 
 BONUS_PROJ = checker_bonus \
+			 stack/stack_init_bonus \
+			 stack/stack_utils_bonus \
+			 stack/stack_append_bonus \
+			 stack/stack_find_bonus \
+			 stack/push_bonus \
+			 stack/swap_bonus \
+			 stack/rotate_bonus \
+			 stack/print_stack_op_bonus \
+			 utils/print_error_bonus \
+			 utils/arg_bonus \
 
 SRC_DIR = src
 OBJ_DIR = obj
+BONUS_DIR = bonus
 LIBFT_DIR = libft
 
 SRCS = $(SRC_PROJ:%=${SRC_DIR}/%.c)
 OBJS = $(SRC_PROJ:%=${OBJ_DIR}/%.o)
 
-BONUSES= $(BONUS_PROJ:%=${SRC_DIR}/%.c)
+BONUSES= $(BONUS_PROJ:%=${BONUS_DIR}/%.c)
 BONUS_OBJS = $(BONUS_PROJ:%=${OBJ_DIR}/%.o)
 
 OBJ_DIRS = $(sort $(dir ${OBJS}))
@@ -57,13 +68,16 @@ all: ${NAME}
 
 ${NAME}: ${OBJS} ${LIBFT}
 	${CC} ${CFLAGS} ${INCLUDE} $^ -o $@
+
+${OBJ_DIR}/%.o: ${SRC_DIR}/%.c | ${OBJ_DIRS}
+	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
 	
 bonus: ${BONUS_NAME}
 
 ${BONUS_NAME}: ${BONUS_OBJS} ${LIBFT}
 	${CC} ${CFLAGS} ${INCLUDE} $^ -o $@
 
-${OBJ_DIR}/%.o: ${SRC_DIR}/%.c | ${OBJ_DIRS}
+${OBJ_DIR}/%.o: ${BONUS_DIR}/%.c | ${OBJ_DIRS}
 	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
 
 ${LIBFT}:

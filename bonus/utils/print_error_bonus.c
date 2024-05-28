@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_error_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/28 11:57:14 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/27 23:31:07 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/28 14:28:15 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	print_error(void)
 {
-	return (push_swap(argc, argv));
+	write(STDERR_FILENO, "Error\n", 6);
 }

@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   arg_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/17 15:26:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/28 11:57:14 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/17 16:56:57 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/28 14:40:23 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#ifndef ARG_BONUS_H
+# define ARG_BONUS_H
 
-int	main(int argc, char **argv)
-{
-	return (push_swap(argc, argv));
-}
+# include "stack_bonus.h"
+
+int	validate_arg(t_stack *stack, char *arg, int *valid);
+int	process_args(size_t args_amount, char **argv, t_stack *stack);
+
+#endif

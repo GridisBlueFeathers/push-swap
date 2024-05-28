@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*   print_stack_op_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 00:07:27 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/28 01:18:35 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/23 11:41:41 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/28 15:08:38 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "stack_bonus.h"
 #include "ft_printf.h"
-#include "libft.h"
 
-int	main(int argc, char **argv)
+void	print_stack_op(t_stack *stack, char *fmt, char arg)
 {
-	char *str;
-	(void)argc;
-	str = (char *)ft_calloc(42, sizeof(char));
-	read(STDIN_FILENO, str, 41);
-	ft_printf("%s %s", argv[1], str);
+	if (arg == 'q')
+		return ;
+	ft_printf(fmt, stack->label);
 }
