@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:14:50 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/28 14:15:08 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/28 22:48:12 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef STACK_BONUS_H
@@ -54,10 +54,5 @@ int				rotate_stack(t_stack *stack, char arg);
 int				rev_rotate_stack(t_stack *stack, char arg);
 void			rotate_stacks(t_stack *stack_a, t_stack *stack_b);
 void			rev_rotate_stacks(t_stack *stack_a, t_stack *stack_b);
-
-
-void			print_stack(t_stack *stack);
-void			print_stacks(t_stack *stack_a, t_stack *stack_b);
-void			print_stacks_util(t_stack *stack_a, t_stack *stack_b);
 
 #endif
