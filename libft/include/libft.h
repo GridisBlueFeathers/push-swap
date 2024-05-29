@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/17 15:36:11 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:23:47 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 void	ft_free_n_null(void **ptr);
 size_t	ft_intlen(long long num);
+int		ft_validate_atoi(char *str, int	*num);
 
 #endif
