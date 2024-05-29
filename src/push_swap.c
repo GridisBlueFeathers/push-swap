@@ -6,16 +6,15 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 23:29:41 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/28 11:56:58 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/29 11:29:57 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "algo.h"
 #include "arg.h"
-#include "libft.h"
 #include "stack.h"
 #include "utils.h"
 
-int	push_swap(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
