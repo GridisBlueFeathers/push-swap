@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 23:29:41 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/29 11:29:57 by svereten         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:35:26 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "algo.h"
@@ -27,6 +27,8 @@ int	main(int argc, char **argv)
 		return (stacks_free(stack_a, stack_b), print_error(), 1);
 	if (!process_args(argc, argv, stack_a))
 		return (stacks_free(stack_a, stack_b), print_error(), 1);
+	if (stack_is_sorted_good(stack_a))
+		return (stacks_free(stack_a, stack_b), 0);
 	algo(stack_a, stack_b);
 	return (stacks_free(stack_a, stack_b), 0);
 }
