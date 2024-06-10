@@ -6,20 +6,20 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 17:07:31 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/29 17:23:16 by svereten         ###   ########.fr       */
+/*   Updated: 2024/06/10 15:45:33 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_validate_atoi(char *str, int	*num)
 {
-	int	str_num;
+	int		str_num;
+	char	*str_itoa;
 
 	str_num = ft_atoi(str);
-	if (ft_strlen(str) != ft_intlen(str_num))
-		return (0);
-	if (str_num == 0 && str[0] != '0')
-		return (0);
+	str_itoa = ft_itoa(str_num);
+	if (ft_strncmp(str, str_itoa, ft_strlen(str)))
+		return (ft_free_n_null((void **)&str_itoa), 0);
 	*num = str_num;
-	return (1);
+	return (ft_free_n_null((void **)&str_itoa), 1);
 }
