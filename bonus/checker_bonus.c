@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 00:07:27 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/28 16:59:57 by svereten         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:06:50 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -50,7 +50,7 @@ int	parse_ops(t_stack *stack_a, t_stack *stack_b)
 
 	line = get_next_line(STDIN_FILENO);
 	check = 1;
-	while (line)
+	while (line && check)
 	{
 		if (check && line && line[0] && !perform_op(stack_a, stack_b, line))
 			check = 0;
