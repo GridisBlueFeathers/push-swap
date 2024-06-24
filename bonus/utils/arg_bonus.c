@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 16:55:47 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/29 17:40:30 by svereten         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:45:17 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "stack_bonus.h"
@@ -61,13 +61,12 @@ int	process_args(size_t argc, char **argv, t_stack *stack)
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
-		argc = 0;
-		while (argv[argc])
-			argc++;
+		if (!argv)
+			return (0);
 		i = 0;
 		split = 1;
 	}
-	while (i < argc)
+	while (argv[i])
 	{
 		if (!stack_append(stack, argv[i]))
 			return (free_split(argv, split), 0);
